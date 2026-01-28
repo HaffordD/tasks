@@ -8,7 +8,7 @@ function App(): React.JSX.Element {
                 UM COS420 with React Hooks and TypeScript
             </header>
             <p>
-                Hello, Im drew, dont question it
+                Hello World, Im drew, dont question it
             </p>
         </div>
     );

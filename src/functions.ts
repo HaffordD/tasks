@@ -54,5 +54,12 @@ export function isQuestion(message: string): boolean {
  * upper or lower case), then return `false`. Otherwise, return `null`.
  */
 export function convertYesNo(word: string): boolean | null {
-    return true;
+    let beool:boolean = false;
+    if(word == "Yes"||word == "yes" || word == "YES" || word =="YEs" || word == "yES" || word == "yeS" || word == "YeS" || word == "yEs"){
+        return true;
+    }
+    if(word == "No" || word == "no" || word == "NO"){
+        return false;
+    }
+    return null;
 }

@@ -94,7 +94,24 @@ export function toShortForm(question: Question): string {
  * Check the unit tests for more examples of what this looks like!
  */
 export function toMarkdown(question: Question): string {
-    return "";
+    let daString:string = "# ";
+    let named = question.name;
+    daString = daString +named+"\n";
+    let bodies = question.body;
+    daString = daString+bodies;
+    if (question.type === "multiple_choice_question"){
+        daString = daString+"\n"
+        let num = question.options;
+        let len = num.length
+        for(let i = 0;i <len;i++){
+            if(i  != len-1){
+                daString = daString + "- "+num[i]+"\n"
+            }
+            else{
+                daString = daString + "- "+num[i]
+            }
+    } }
+    return daString;
 }
 
 /**
@@ -102,7 +119,7 @@ export function toMarkdown(question: Question): string {
  * `newName`.
  */
 export function renameQuestion(question: Question, newName: string): Question {
-    return question;
+
 }
 
 /**

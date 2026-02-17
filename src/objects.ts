@@ -31,7 +31,9 @@ export function makeBlankQuestion(
 export function isCorrect(question: Question, answer: string): boolean {
     let newQuest = answer.toLowerCase();
     let trimQuest = newQuest.trim();
-    if(trimQuest === question.expected){
+    let savedAns = question.expected;
+    let lowEnd = savedAns.toLowerCase();
+    if(trimQuest === lowEnd){
         return true;
     }
     else{

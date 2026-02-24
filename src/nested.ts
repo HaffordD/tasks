@@ -80,7 +80,8 @@ export function makeAnswers(questions: Question[]): Answer[] {
  * Hint: as usual, do not modify the input questions array
  */
 export function publishAll(questions: Question[]): Question[] {
-    return [];
+    const newListy = questions.map((y) => ({ ...y, published: true }));
+    return newListy;
 }
 
 /***

@@ -55,7 +55,8 @@ export function removeQuestion(questions: Question[], id: number): Question[] {
  * Do not modify the input array.
  */
 export function getNames(questions: Question[]): string[] {
-    return [];
+    const nams = questions.map((y) => y.name);
+    return nams;
 }
 
 /**

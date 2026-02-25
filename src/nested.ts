@@ -113,7 +113,7 @@ export function renameQuestionById(
     newName: string,
 ): Question[] {
     const newStuff = questions.map((y) =>
-        y.id === targetId ? { ...y, name: newName } : y,
+        y.id === targetId ? { ...y, name: newName } : { ...y },
     );
     return newStuff;
 }
@@ -130,11 +130,34 @@ export function renameQuestionById(
  *
  * Hint: you need to use the ... operator for both the question and the options array
  */
+
+function indexStuff(
+    x: string[],
+    targetOptionIndex: number,
+    newOption: string,
+): string[] {
+    if (targetOptionIndex === -1) {
+        return [...x, newOption];
+    }
+    const newOp = [...x];
+    newOp.splice(targetOptionIndex, 1, newOption);
+    return newOp;
+}
+
 export function editOption(
     questions: Question[],
     targetId: number,
     targetOptionIndex: number,
     newOption: string,
 ): Question[] {
-    return [];
+    const fixItFelix = questions.map((y) => ({ ...y }));
+    const newStuff = fixItFelix.map((y) =>
+        y.id === targetId ?
+            {
+                ...y,
+                options: indexStuff(y.options, targetOptionIndex, newOption),
+            }
+        :   { ...y },
+    );
+    return newStuff;
 }

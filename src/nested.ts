@@ -34,6 +34,7 @@ export function getNonEmptyQuestions(questions: Question[]): Question[] {
 export function findQuestion(
     questions: Question[],
     id: number,
+    id: number,
 ): Question | null {
     const questing = questions.find((x) => x.id === id);
     return questing ?? null;
@@ -95,6 +96,7 @@ export function addNewQuestion(
     id: number,
     name: string,
     type: QuestionType,
+    type: QuestionType,
 ): Question[] {
     const newStuf = [...questions, makeBlankQuestion(id, name, type)];
     return newStuf;
@@ -105,11 +107,13 @@ export function addNewQuestion(
  * the Questions are the same EXCEPT for the one with the given `targetId`. That
  * Question should be the same EXCEPT that its name should now be `newName`.
  * Hint: as usual, do not modify the input questions array,
+ * Hint: as usual, do not modify the input questions array,
  *       to make a new copy of a question with some changes, use the ... operator
  */
 export function renameQuestionById(
     questions: Question[],
     targetId: number,
+    newName: string,
     newName: string,
 ): Question[] {
     const newStuff = questions.map((y) =>
@@ -127,6 +131,7 @@ export function renameQuestionById(
  *
  * Remember, if a function starts getting too complicated, think about how a helper function
  * can make it simpler! Break down complicated tasks into little pieces.
+ *
  *
  * Hint: you need to use the ... operator for both the question and the options array
  */
@@ -149,6 +154,7 @@ export function editOption(
     targetId: number,
     targetOptionIndex: number,
     newOption: string,
+    newOption: string,
 ): Question[] {
     const fixItFelix = questions.map((y) => ({ ...y }));
     const newStuff = fixItFelix.map((y) =>
@@ -161,3 +167,4 @@ export function editOption(
     );
     return newStuff;
 }
+
